@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>ch1</title>
+    <link rel="stylesheet" href="../../css/ch1.css" media="screen">
+</head>
+
+<body>
+    <header>
+        <hgroup>
+            <h1>Implement and manipulate document structures and object</h1>
+        </hgroup>
+        <nav>
+            <a href="#">Objective 1.1</a>
+            <a href="objective12.html">Objective 1.2</a>
+            <a href="objective13.html">Objective 1.3 </a>
+        </nav>
+    </header>
+
+    <article>
+        <header>
+            <hgroup>
+                <h1>Article 1</h1>
+                <h5>Some detailes</h5>
+            </hgroup>
+        </header>
+        <section>
+
+            <header>
+                <hgroup>
+                    <h1>Section 1</h1>
+                </hgroup>
+            </header>
+
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <aside class="info">
+                some information in &lt aside &gt Auther:Bahram
+            </aside>
+
+        </section>
+    </article>
+    <article>
+        <header>
+            <hgroup>
+                <h1>Article 2</h1>
+                <h5>Some info</h5>
+            </hgroup>
+        </header>
+        <section>
+            <header>
+                <hgroup>
+                    <h1>Section one </h1>
+                </hgroup>
+            </header>
+
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </section>
+    </article>
+
+    <article class="clear">
+        <header>
+            <hgroup>
+                <h1>Article 3</h1>
+            </hgroup>
+        </header>
+        <section>
+            <header>
+                <hgroup>
+                    <h1>Section one</h1>
+                </hgroup>
+            </header>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+
+        </section>
+        <section>
+            <header>
+                <hgroup>
+                    <h1>Section 2</h1>
+                </hgroup>
+            </header>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+            in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </section>
+        <figure>
+            <a href="../../img/bam.jpg">
+                <img src="../../img/bam.jpg" alt="Bahram" />
+
+            </a>
+            <figcaption>Fig A: Bahram foto for testing &lt figure &gt</figcaption>
+        </figure>
+
+    </article>
+    <aside class="sideMenu">
+
+        <nav>
+            <a href="#">Test 1</a>
+            <a href="#">Test 2</a>
+        </nav>
+    </aside>
+
+    <div>
+        <header>
+            <hgroup>
+                <h1>Using Progress bar</h1>
+            </hgroup>
+        </header>
+
+        <form>
+            <fieldset>
+                <legend>HTML elements</legend>
+                <h5>Determinant Progress</h5>
+                <span>0</span> <progress value="20" max="100"></progress> <span>100</span>
+
+                <h5>Indeterminant progress</h5>
+                <p>
+                    Data download is in progress . Please wait. <button id="hideprogressBar" onclick="toggle()">Hide Progress</button>
+                </p>
+                <progress max="100" id="inprogress">50%</progress>
+                <h2>Mark</h2>
+                <label for="colorchooser">Choose a color</label> <input type="color" id="colorchooser" onchange="colorChanged()">
+
+                <p>
+                    <mark style="background-color:red;" id='markedText'>  This is a very important text so we mark it with &lt mark &gt element</mark>
+                </p>
+
+                <h2>Select</h2>
+                <select name="cars">
+                <optgroup label="Seat">
+                  <option>Toledo</option>
+                  <option>Ibiza</option>
+                </optgroup>
+                <optgroup label="Honda">
+                  <option>Cevic</option>
+                  <option>Accord</option>
+                  <option>Jazz</option>
+                </optgroup>
+            </select>
+
+                <h2>Data list or combobox</h2>
+                <label for="browser">Choose a browser</label>
+                <input list="browsers" id='browser'>
+                <datalist id="browsers">
+              <option value="Internet Explorer">
+              <option value="Firefox">
+              <option value="Chrome">
+              <option value="Opera">
+              <option value="Safari">
+            </datalist>
+
+                <h2>Range</h2>
+                <input type="range" name="name" min="0" max="100" value="50"><br>
+
+
+                <label for="gender">Gender</label>
+                <input type="radio" name="name" ide='gender' value="">
+                <input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+                <h2>type=Number</h2> Quantity: <input type="number" name="points" min="0" max="100" step="1" value="0">
+                <h2>Date</h2> Birthday: <input type="date" name="bday"> Enter a date before 1980-01-01:
+                <input type="date" name="bday" max="1979-12-31"><br> Enter a date after 2000-01-01:
+                <input type="date" name="bday" min="2000-01-02"><br> Birthday (month and year):<input type="month" name="bdaymonth"> Select a week:
+                <input type="week" name="week_year"> <br> Select a time:<br>
+                <input type="time" name="usr_time">
+                <h2>Local date time</h2> Birthday (date and time):<br>
+                <input type="datetime-local" name="bdaytime">
+                <h2>Email</h2> E-mail:
+                <input type="email" name="email"> <br> Search Google:
+                <input type="search" name="googlesearch"><br> Telephone:
+                <input type="tel" name="usrtel"><br>Add your homepage:
+                <input type="url" name="homepage">
+
+                <h2>Meter</h2>
+                <meter min="0" max="14" value="5"></meter> <br>
+                <meter min="8" max="16" low="6" high="12" value="11"></meter> <br>
+                <meter min="4" value="11" max="10"></meter>
+
+
+                <hr>
+                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            </fieldset>
+        </form>
+
+    </div>
+    <hr>
+
+    <footer>Copyright (c) 2016 Copyright Holder All Rights Reserved.</footer>
+
+</body>
+
+</html>
+
+</article>
+<script type="text/javascript" src="../../js/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+    function colorChanged() {
+        var color = document.getElementById('colorchooser').value
+        document.getElementById('markedText').style.backgroundColor = color;
+    }
+
+    function toggle() {
+        if (document.getElementById('inprogress').style.visibility.toString() == 'hidden') {
+            document.getElementById('inprogress').style.visibility = "visible";
+            document.getElementById('hideprogressBar').innerHTML = 'Hide Progress'
+        } else {
+            document.getElementById('inprogress').style.visibility = "hidden";
+            document.getElementById('hideprogressBar').innerHTML = 'Show Progress'
+        }
+    }
+
+
+
+    /* jquery
+    $(function() {
+        $('#hideprogressBar').click(function() {
+            $(this).text() == 'Hide Progress' ? $(this).text('Show Progress') : $(this).text('Hide Progress');
+            $('#inprogress').toggle();
+        });
+
+
+    });
+    */
+</script>
+
+</body>
+
+
+</html>
+/body>
+
+
+</html>

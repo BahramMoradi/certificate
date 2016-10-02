@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Objective13</title>
+    <link rel="stylesheet" href="../../css/objective13.css">
+</head>
+
+<body>
+    <header>
+        <hgroup class="maintitle">
+            <h1>Objective 1.3: Apply styling to HTML elements programatically</h1>
+            <!--  <h5>The section covers applying styles to the HTML elements on the page dynamically, using
+JavaScript. When you retrieve element references by using methods such as getElementById,
+you can then manipulate those elements, including their styles.</h5> -->
+        </hgroup>
+    </header>
+
+    <!--  <table style="width: 100%; height: 100%; border: 1px solid black;">
+        <tr>
+            <td style="vertical-align: top; width: 80%">
+                <img id="one" src="../../img/play.png" />
+                <img id="two" src="../../img/pause.png" />
+            </td>
+
+            <td style="vertical-align: top;">Left:
+                <input type="text" id="leftText" /><br/> Top:
+                <input type="text" id="topText" /><br/> Position:
+                <select id="positioning">
+                    <option>relative</option>
+                    <option>absolute</option>
+                </select>
+                <br/>
+                <input type="button" id="btnPosition" value="Update" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <div id="d1"> </div>
+                <div id="d2"></div>
+            </td>
+            <td style="vertical-align: top;">Left:
+                <input type="text" id="leftText" /><br/> Top:
+                <input type="text" id="topText" /><br/> Position:
+                <select id="positioning">
+                    <option>relative</option>
+                    <option>absolute</option>
+                </select>
+                <br/>
+                <input type="button" id="btnPosition" value="Update" />
+            </td>
+        </tr>
+    </table>  -->
+    <div class="section">
+        <h2>Changing the location of an element</h2>
+        <div id="d1"> </div>
+        <div id="d2"></div>
+        <dl>
+            <dt>Abslout:</dt>
+            <dd>With absolute positioning, the element is placed in the exact location specified, relative to its container’s borders</dd>
+            <dt>Relative:</dt>
+            <dd>with relative positioning, the element is positioned <mark>relative to its immediate left sibling’s </mark>coordinates.</dd>
+        </dl>
+
+        <code><pre class="prettyprint">
+          window.onload = function () {
+           var top=document.getElementById('topText');
+           var left=document.getElementById('leftText');
+           var pos=document.getElementById('positioning');
+           document.getElementById('btnPosition').onclick=function(){
+
+           var div2=document.getElementById('d2');
+           div2.style.position=pos.value;
+           div2.style.top=top.value+"px";
+           div2.style.left=left.value+"px";
+
+           }
+        </pre></code>
+
+
+        <div id="inp">
+            <fieldset>
+                <legend>Relative and abslut positioning:</legend>
+                left:<br>
+                <input type="number" id="leftText" value="0" /><br/> Top:<br>
+                <input type="number" id="topText" value="0" /><br/> Position:<br>
+                <select id="positioning">
+                    <option>relative</option>
+                    <option>absolute</option>
+              </select>
+                <br/>
+                <input type="button" id="btnPosition" value="Update" />
+            </fieldset>
+
+
+            <fieldset>
+                <legend>Transform</legend>
+                Rotate: <br>
+                <input type="number" id="transform" min="0" max="360" step="5" onchange="rotateBox(event)"><br> Scale:
+                <br>
+                <input type="number" id="scale" min="0" max="10" onchange="scaleBox(event)"> <br>
+                <select id="scaleType">
+                    <option>Scale</option>
+                    <option>Scale X</option>
+                    <option>Scale Y</option>
+                </select> <br> Translate:
+                <br> X:
+                <br>
+                <input type="number" id="translateX" placeholder="Translate X" onchange="translateBox()" value="0"> <br> Y:
+                <br>
+                <input type="number" id="translateY" placeholder="Translate Y" onchange="translateBox()" value="0"> <br> skew:<br> X:
+                <br>
+                <input type="number" id="skewX" value="0" placeholder="X deg" onchange="skewBox()"><br> Y:
+                <br>
+                <input type="number" id="skewY" value="0" placeholder="Y deg" onchange="skewBox()"><br> Combined Transformation:<br> Translate X: <br>
+                <input type="number" value="0" id="xtranslate" onchange="combinedTransformation()"> <br> Translate Y: <br>
+                <input type="number" value="0" id="ytranslate" onchange="combinedTransformation()"><br> Scale X:<br>
+                <input type="number" value="0" id="scaleX" onchange="combinedTransformation()"> <br> Scale Y: <br>
+                <input type="number" value="0" id="scaleY" onchange="combinedTransformation()"><br> Skew X: <br>
+                <input type="number" value="0" id="xskew" onchange="combinedTransformation()"><br> Skew Y: <br>
+                <input type="number" value="0" id="yskew" onchange="combinedTransformation()"><br>
+
+
+
+            </fieldset>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="section">
+        <h2>Applying a transform</h2>
+        <dl>
+            <dt>Transform</dt>
+            <dd>Transforms enable you to change an element’s appearance. You can make an element larger or smaller, rotate it, and so on. Quite a few transform methods are available. To add a transform to an element, you declare it in the CSS for the element
+                by adding the transform property as follows: <code>.rota {transform: rotate(90deg);}</code></dd>
+        </dl>
+        <h3>Rotate and Scale</h3>
+        <code><pre>
+          function rotateBox(event){
+             document.getElementById('box1').style.transform= 'rotate('+event.target.value+'deg)';
+          }
+          function scaleBox(event){
+            var scaleType=document.getElementById('scaleType').value;
+            switch (scaleType) {
+              case 'Scale':
+                document.getElementById('box1').style.transform= 'scale('+event.target.value+')';
+                break;
+              case 'Scale X':
+                document.getElementById('box1').style.transform= 'scaleX('+event.target.value+')';
+              break;
+              case 'Scale Y':
+              document.getElementById('box1').style.transform= 'scaleY('+event.target.value+')';
+              break;
+              default:
+
+            }
+
+          }
+        </pre></code>
+        <div class="box" id="box1">
+            Click on me to rotate
+        </div>
+    </div>
+    <div class="section">
+        <h1>Using <code>translate</code> method</h1>
+        <p>
+            The translate method lets you move an HTML element by changing its relative X and Y position on the page. You implement the translate method by specifying the translate method on the transform property.
+            <code>transform: translate(50px,0px);</code>
+        </p>
+        <code><pre>
+          function translateBox(){
+            var x=document.getElementById('translateX').value;
+            var y=document.getElementById('translateY').value;
+            var box=document.getElementById('translateBox');
+            //box.style["-webkit-transform"] = "translate("+x"px,"+ y +"px)";
+            //box.style["-moz-transform"] = "translate("+x+"px," + y +"px)";
+            //box.style["-ms-transform"] = "translate("+x+"px" + y + "px)";
+            //box.style["-o-transform"] = "translate("+x+"px," + y + "px)";
+            box.style["transform"] = "translate("+x+"px," + y + "px)";
+          }
+        </pre></code>
+        <div class="box" id='translateBox'>
+            Move me !!
+        </div>
+    </div>
+    <div class="section">
+        <h1>Using <code>skew</code></h1>
+        <p>
+            Skewing slants the object so that it’s not parallel to the vertical or horizontal axis.
+        </p>
+        <code><pre>
+          function skewBox(){
+            var x=document.getElementById('skewX').value;
+            var y=document.getElementById('skewY').value;
+            var box=document.getElementById('skewBox');
+            box.style["transform"] = "skew("+x+"deg," +y+ "deg)";
+          }
+        </pre></code>
+
+        <div class="box" id="skewBox">
+            skew me
+        </div>
+
+    </div>
+    <div class="section">
+        <h1>Combining transformations</h1>
+        <p>
+
+            Transformations individually lend great flexibility to what you can accomplish by changing the appearance of HTML elements, but the transform style isn’t limited to specifying a single transformation method. You can combine the methods to apply multiple
+            effects to the element. In the sample code, change the transform property to the following code:<code>
+transform: translate(50px,0px) scale(1.5) skew(10deg, 10deg);</code> In this code, three effects are applied. Order matters. The effects are applied in the order that they are specified in the transform property. In this case, the translate property is
+            applied first, and then the translated object is scaled. Finally, the resulting object is skewed. The effect on the HTML element is that it is moved 50 pixels along the x-axis, scaled by 50 percent, and then skewed 10 degrees.</p>
+
+        <code><pre>
+   function combinedTransformation(){
+     var tx=document.getElementById('xtranslate').value;
+     var ty=document.getElementById('ytranslate').value;
+     var xs=document.getElementById('scaleX').value;
+     var ys=document.getElementById('scaleY').value;
+     var xskew=document.getElementById('xskew').value;
+     var yskew=document.getElementById('yskew').value;
+     var box=document.getElementById('combinedTransform');
+     box.style.transform='translate('+tx+'px,' + ty + 'px) scale('+xs+','+ys+') skew('+xskew+'deg,'+yskew+'deg)';
+}
+      </pre></code>
+        <div class="box" id="combinedTransform">
+            combined
+        </div>
+    </div>
+    <div class="section">
+        <h1>Showing and hiding elements</h1>
+        <p>
+            You can show and hide elements declaratively in the HTML markup or programmatically by modifying the object’s CSS properties through JavaScript. You can create the CSS properties that show or hide an element directly in an object’s style property or in
+            a CSS style, and it is added to the element’s style collection.
+        </p>
+        <h2>Using <i>display</i> property</h2>
+        <p>
+            <i>display property </i> accepts two possible values. A value of <i>inline</i> tells the browser to <i>show</i> the item, while a value of <i>none</i> means the browser should <i>hide</i> the item. Notice that by using <i>display</i> property
+            the element palce is not preserved in the layout.
+            <code><pre>
+              document.getElementById('displayBtn').onclick=function(){
+              if(document.getElementById('displayHideShowBox').style.display=='' ||
+               document.getElementById('displayHideShowBox').style.display=='block'){
+                  document.getElementById('displayHideShowBox').style.display='none';
+
+                }else{
+                      document.getElementById('displayHideShowBox').style.display='block';
+                }
+
+              }
+            </pre></code>
+        </p>
+        <button type="button" name="button" class="hideAndShowBTN" id="displayBtn">Hide or Show</button>
+        <div class="box" id="displayHideShowBox">
+            Hide and Show using <i>display</i>
+        </div>
+        <h2>Using <em>visibility</em> property</h2>
+        <p>
+            The second property available for controlling element visibility is called visibility. This property accepts four possible values, as outlined below:
+        </p>
+        <dl class="">
+            <dt><i>visible</i></dt>
+            <dd>Sets the property to visible to show the element</dd>
+            <dt><i>hidden</i></dt>
+            <dd>Hides the element</dd>
+            <dt><i>colapse</i></dt>
+            <dd>Collapses the element where applicable, such as in a table row</dd>
+            <dt><i>inherite</i></dt>
+            <dd>Inherits the value of the visibility property from the parent</dd>
+        </dl>
+        <p>
+            <code><pre>
+            document.getElementById('visibilityBTN').onclick=function(){
+              if(document.getElementById('visibilityBox').style.visibility =='hidden'){
+                document.getElementById('visibilityBox').style.visibility ='visible';
+
+              }else{
+                 document.getElementById('visibilityBox').style.visibility ='hidden';
+                  console.log( document.getElementById('visibilityBox').style.visibility);
+              }
+            }
+
+          </pre></code>
+        </p>
+        <button type="button" class="hideAndShowBTN" id="visibilityBTN">Hide or Show</button>
+        <div class="box" id="visibilityBox">
+            Using <i>visibility</i> property
+
+
+        </div>
+
+        <section class="examtip">
+            <h2><i>EXAM TIP</i></h2>
+            <i>If you need to preserve the page layout when altering visibility, use the visibility property with the hidden value. If you don’t need to preserve the layout, you can either set the display property to none or set visibility to collapse. </i>
+        </section>
+
+
+
+
+    </div>
+
+
+    <script src="../../js/objective13.js" type="text/javascript">
+    </script>
+    <script src="../../js/jquery-3.1.0.js" type="text/javascript">
+    </script>
+</body>
+
+</html>
+
+
+</html>

@@ -1,0 +1,87 @@
+body{
+  margin: 0px;
+  width: 60%;
+  margin: auto;;
+}
+article{
+  margin: 10px;
+  padding: 10px;
+  float: left;
+  max-width: 400px;
+  min-height: 300px;
+  border: 1px solid blue;
+}
+article section{
+  float: left;
+  border:1px solid red;
+  min-height: 120px;
+  max-width: 180px;
+  margin: 5px;
+  padding: 2px;
+}
+aside.info{
+  min-width: 100px;
+  background: #008FFF;
+  position: fixed;
+  top: 100px;
+  right: 100px;
+  width: 200px;
+  height: 100px;
+
+}
+aside.sideMenu{
+  min-width: 100px;
+  background: #858FFF;
+  position: fixed;
+  top: 205px;
+  right: 100px;
+  width: 200px;
+}
+aside.sideMenu nav a{
+  display: block;
+  text-decoration: none;
+  margin: 10px;
+  background: #FFF000;
+  height: 40px;
+  text-align: center;
+  padding: 5px;
+
+}
+aside.sideMenu nav a:hover{
+  background-color:#FFF ;
+}
+aside.sideMenu nav a:visited{
+  color:#F00000 ;
+}
+aside.sideMenu nav a:active{
+  color:#00F;
+}
+
+.clear{
+  margin: 10px;
+  padding: 10px;
+  float: clear;
+  min-width: 400px;
+  min-height: 300px;
+  border: 1px solid blue;
+  background: yellow;
+}
+footer{
+  position: fixed;
+  bottom: 0px;
+  text-align: center;
+  background:#008FFF;
+  height: 50px;
+  width: 60%;
+}
+
+/*styling datepicker chrome*/
+/*
+::-webkit-datetime-edit { padding: 1em; }
+::-webkit-datetime-edit-fields-wrapper { background: silver; }
+::-webkit-datetime-edit-text { color: red; padding: 0 0.3em; }
+::-webkit-datetime-edit-month-field { color: blue; }
+::-webkit-datetime-edit-day-field { color: green; }
+::-webkit-datetime-edit-year-field { color: purple; }
+::-webkit-inner-spin-button { display: none; }
+::-webkit-calendar-picker-indicator { background: orange; }*/

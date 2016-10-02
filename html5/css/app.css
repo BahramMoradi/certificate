@@ -1,0 +1,56 @@
+
+/* using adjacent sibling selector*/
+
+h1+p{
+  font-size: 12px;
+  color: #848484;
+   font-family: "Times New Roman", Georgia, Serif;
+}
+
+body{
+    width: 60%;
+    margin: auto;
+}
+hgroup{
+  width: 60%;
+  position: fixed;
+  top:0px;
+  background:#000;
+  color:#FFF;
+  opacity: 0.8;
+  text-align: center;
+  border-bottom:1px solid black;
+}
+
+nav{
+  position: fixed;
+  top:120px;
+  width: 60%;
+  text-align: center;
+  background: #000;
+
+}
+nav a{
+  color: #FFF;
+  text-decoration: none;
+  margin: 10px;
+}
+.content{
+position: relative;
+top: 100px;
+}
+
+
+div{
+  margin-top: 50px;
+}
+footer{
+  width: 60%;
+  margin: auto;
+  text-align: center;
+  background-color: #00F;
+  color: #FFF;
+  position: fixed;
+  bottom: 0;
+
+}
