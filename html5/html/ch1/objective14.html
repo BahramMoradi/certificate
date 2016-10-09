@@ -8,19 +8,74 @@
 </head>
 
 <body>
+
     <h1>Objective 1.4</h1>
-    <article class="">
-        <section>
-            <h1>Using the storage API</h1>
+    <article>
+        <h1 class="articleTitle">Using the storage API</h1>
+        <section class="code">
+            <h1>Description</h1>
+        </section>
+        <section class="ui">
+            <h1>UI</h1>
+            <div>
+                <table>
+                    <tr>
+                        <td colspan="2">
+                            Key: <input type="text" id='key'>
+                        </td>
+                        <td colspan="1">
+                            Note: <input type="text" id='note'>
+                        </td>
+                        <td>
+                            <button type="button" name="button" id='addBtn'>Add</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="tableDiv">
+
+            </div>
+
 
         </section>
-
+        <section class="examTip">
+            <h1>EXAM TIP</h1>
+            <p>
+                The localStorage and sessionStorage objects provide exactly the same API. All the examples shown in this section work exactly the same with either object. The only difference is the lifetime of the storage. Remember that sessionStorage is cleared when
+                the session is closed, whereas localStorage is still be accessible after a session closes and a new session opens.
+            </p>
+        </section>
+    </article>
+    <article>
+        <h1 class="articleTitle">Using the AppCache API</h1>
+        <section class="code">
+            <h1>Description</h1>
+            <p>
+                The AppCache API makes content and webpages available even when a web application is in offline mode. AppCache stores files in the application cache in the browser. Just as with Web Storage, the amount of data the browser can store locally is limited
+                for offline use. Two components make up the AppCache API: the manifest file and a JavaScript API to support it.
+            </p>
+        </section>
+        <section class="ui">
+            <h1>UI</h1>
+        </section>
+    </article>
+    <article>
+        <h1 class="articleTitle">Using the Geolocation API</h1>
+        <section class="code">
+        </section>
+        <section class="ui">
+            <h1>UI</h1>
+        </section>
     </article>
 
 
 
+    <script src="../../js/jquery-3.1.0.js" type="text/javascript">
+    </script>
     <script src="../../js/objective14.js" type="text/javascript">
     </script>
+
+
 </body>
 
 </html>
