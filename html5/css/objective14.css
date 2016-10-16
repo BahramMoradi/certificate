@@ -13,6 +13,7 @@ article{
 }
 section {
   margin: 5px;
+  padding: 40px;
   border: 1px solid blue;
   background: #CCCCCC;
 
@@ -53,4 +54,11 @@ width: 200px;
 
 .kvTable:nth-child(odd){
   background-color:#CCCCCC;
+}
+#map {
+  border: 1px solid black;
+  height: 500px;
+  width: 500px;
+  z-index: 0;
+
 }

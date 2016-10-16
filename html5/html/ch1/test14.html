@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Test 1.4</title>
+</head>
+
+<body>
+    <h1>Test 1.4</h1>
+    <article class="test">
+        <section>
+            <p id="Q1">
+                1. When using the Web Storage API, where should you store data to ensure that it’s cleared when the user closes the browser?
+            </p>
+            <form>
+                <input type="radio" name="Q1" id="Q1-A" onchange="check(this.id);"> localStorage<br>
+                <input type="radio" name="Q1" id="Q1-B" onchange="check(this.id);"> cookieStorage <br>
+                <input type="radio" name="Q1" id="Q1-C" onchange="check(this.id);"> sessionStorage<br>
+                <input type="radio" name="Q1" id="Q1-D" onchange="check(this.id);"> A hidden input element <br>
+            </form>
+
+            <p id="Q2">
+                2. What do you need to do to designate a page as available offline?
+            </p>
+            <form>
+                <input type="radio" name="Q2" id="Q2-A" onchange="check(this.id)"> Specify in JavaScript as document.offLine=true. <br>
+                <input type="radio" name="Q2" id="Q2-B" onchange="check(this.id)"> Specify the manifest attribute on the form element. <br>
+                <input type="radio" name="Q2" id="Q2-C" onchange="check(this.id)"> Specify the manifest attribute on the HTML element. <br>
+                <input type="radio" name="Q2" id="Q2-D" onchange="check(this.id)"> Tell users to switch to offline mode using their browser. No code is required. <br>
+
+            </form>
+
+            <p id="Q3">
+                3.Which of the following aren’t valid sections of the AppCache manifest??
+            </p>
+            <form>
+                <input type="radio" name="Q3" id="Q3-A" onchange="check(this.id)"> Cache manifest<br>
+                <input type="radio" name="Q3" id="Q3-B" onchange="check(this.id)"> Session manifest<br>
+                <input type="radio" name="Q3" id="Q3-C" onchange="check(this.id)"> Network manifest<br>
+                <input type="radio" name="Q3" id="Q3-D" onchange="check(this.id)"> Fallback manifest<br>
+
+            </form>
+            <p id="Q4">
+                4. Which event is fired by the AppCache object when the cache download is complete?
+            </p>
+            <form>
+                <input type="radio" name="Q4" id="Q4-A" onchange="check(this.id)"> oncached<br>
+                <input type="radio" name="Q4" id="Q4-B" onchange="check(this.id)"> onupdateready<br>
+                <input type="radio" name="Q4" id="Q4-C" onchange="check(this.id)"> ondownloading<br>
+                <input type="radio" name="Q4" id="Q4-D" onchange="check(this.id)"> onchecking <br>
+
+            </form>
+            <p id="Q5">
+                5. When using the Geolocation API, how do you configure the ability to use cached data?
+            </p>
+            <form>
+                <input type="radio" name="Q5" id="Q5-A" onchange="check(this.id)"> Set the enableCache property to true on the PositionOptions object.<br>
+                <input type="radio" name="Q5" id="Q5-B" onchange="check(this.id)"> Set the maximumAge property to a non-zero value on the PositionOptions object.<br>
+                <input type="radio" name="Q5" id="Q5-C" onchange="check(this.id)"> Set the timeout property of the PositionOptions object. <br>
+                <input type="radio" name="Q5" id="Q5-D" onchange="check(this.id)"> Using the cache is always on to save bandwidth, so no configuration is required. <br>
+
+            </form>
+
+
+
+        </section>
+
+    </article>
+    <script src="../../js/test14.js" type="text/javascript">
+    </script>
+</body>
+
+</html>

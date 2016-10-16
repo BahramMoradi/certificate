@@ -1,11 +1,72 @@
+
+var map;
+var watcher;
+var geo;
+
+window.initMap=function(){
+
+    var mapOptions = {
+        center: {lat: 55.5185192, lng: 15.7812413},
+        zoom: 5
+    };
+    map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    map.addListener('zoom_changed', function () {
+        zoom = map.getZoom();
+    });
+};
 window.onload=function(){
+
   loadFromLoacalStorage();
   document.getElementById('addBtn').onclick=function(){
     localStorage.setItem(document.getElementById('key').value,document.getElementById('note').value);
     loadFromLoacalStorage();
   }
 
+
+  /*appCache section*/
+  var appCache = window.applicationCache;
+  appCache.oncached = function (e) { alert("cache successfully downloaded."); };
+  appCache.onupdateready = function (e) { appCache.swapCache(); };
+
+  /*geo location*/
+
+
+/*
+
+var geoLocator = window.navigator.geolocation;
+var posOptions = {enableHighAccuracy:true, timeout:45000}
+geoLocator.getCurrentPosition(successPosition,errorPosition,posOptions);
+*/
 }
+/*
+function successPosition(pos){
+alert(pos)
+var latitude=pos.coords.latitude;
+var longitude=pos.coords.longitude;
+var p=document.createElement('p');
+p.innerText='Latitude: '+latitude+'  Longitude: '+longitude;
+document.getElementById('geoResult').appendChild(p);
+
+var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(latitude, longitude),
+            title: "Your position"
+
+        });
+
+marker.setMap(map);
+
+}
+function errorPosition(pos){
+alert(pos)
+}
+
+*/
+
+/*wathc position*/
+
+
+
+
 
 function loadFromLoacalStorage(){
   var div=document.getElementById('tableDiv');
@@ -57,4 +118,56 @@ function loadFromLoacalStorage(){
 function remove(id){
   localStorage.removeItem(id);
   loadFromLoacalStorage();
+}
+
+
+
+/* geo watcher*/
+
+function startWatcher(){
+  geo=window.navigator.geolocation;
+  var posOptions = {enableHighAccuracy: true,timeout: 45000};
+  watcher=geo.watchPosition(successCallback, errorCallback, posOptions);
+}
+
+function successCallback(pos){
+ createMarker(pos);
+// addToTable(pos);
+addToWatchDiv(pos);
+
+
+}
+
+function addToWatchDiv(pos){
+var p = document.createElement('p');
+  p.innerText='Longitude: '+pos.coords.longitude+' Latitude: '+pos.coords.latitude;
+  document.getElementById('positionData').appendChild(p);
+
+}
+
+function errorCallback(err){
+  alert(err.message+' '+err.code);
+}
+
+
+
+
+
+function createMarker(pos){
+  var marker = new google.maps.Marker({
+              position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
+              title: "Your position "
+
+          });
+
+  marker.setMap(map);
+}
+
+function watcherAction(id){
+  if(id=='startWatcher'){
+    startWatcher();
+  }
+  else{
+    geo.clearWatch(watcher);
+  }
 }

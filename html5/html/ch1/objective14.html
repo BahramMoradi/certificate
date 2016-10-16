@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html manifest="http://localhost:3000/html/ch1/webApp.appcache">
 
 <head>
     <meta charset="utf-8">
@@ -53,8 +53,20 @@
             <p>
                 The AppCache API makes content and webpages available even when a web application is in offline mode. AppCache stores files in the application cache in the browser. Just as with Web Storage, the amount of data the browser can store locally is limited
                 for offline use. Two components make up the AppCache API: the manifest file and a JavaScript API to support it.
+
             </p>
         </section>
+        <section class="examTip">
+            <h1>EXAM TIP</h1>
+            <p>
+                If you really want to change the file extension, you need to configure the web server so that your chosen file extension is returned with a MIME type of text/cache-manifest.
+            </p>
+
+        </section>
+        <section class="examTip">
+            <h1>EXAM TIP</h1> The call to the update method is asynchronous. Therefore, you must handle the onupdateready event to determine when the update has completed the download process.
+        </section>
+
         <section class="ui">
             <h1>UI</h1>
         </section>
@@ -62,18 +74,69 @@
     <article>
         <h1 class="articleTitle">Using the Geolocation API</h1>
         <section class="code">
+            <img src="../../img/gps.jpg" alt="GPS" id="gps" />
+            <h1>Using current location</h1>
+            <p>
+                Location services depend on the Global Positioning System (GPS), IP addresses, and other device characteristics.<br> You can take advantage of geolocation in web applications by leveraging browsers that support the Geolocation API. <br>                The Geolocation API supports three key methods that you use to interact with it:<br>
+                <code>getCurrentPosition, watchPosition, and clearWatch.</code>
+            </p>
+            <h2>Using the <code>getCurrentPosition </code>method</h2>
+            <code>getCurrentPosition(positionCallback, [positionErrorCallback], [positionOptions])</code>
+            <h2>Using the <code>watchPosition</code> method</h2>
+            <p>
+                what position continuously polls for the current position <br>
+                <code>geoLocator.watchPosition(successCallBack,errorCallback,positionOptions)</code>
+                <p>
+                    The watchPosition method takes the same set of parameters as the getCurrentPosition method but returns a <code>watchPosition </code>object:
+                </p>
+                <code>var watcher = geoLocator.watchPosition...</code>
+            </p>
+
         </section>
         <section class="ui">
             <h1>UI</h1>
+            <section>
+                <h1>Your current location:</h1>
+                <div id="geoResult">
+                </div>
+                <div id="map">
+
+                </div>
+                <input type="button" name="name" id="startWatcher" value="Start" onclick="watcherAction(this.id);" />
+                <input type="button" name="name" id="stoptWatcher" value="Stop" onclick="watcherAction(this.id);" />
+
+                <div id="positionData">
+
+                </div>
+            </section>
         </section>
+    </article>
+    <article>
+        <h1 class="articleTitle">Objective summary</h1>
+        <section class="ui">
+            <ul>
+                <li>The new Web Storage API enables you to store data locally on the client computer.</li>
+                <li>Web Storage supports both localStorage and sessionStoroage</li>
+                <li>Data in Web Storage is stored as name and value pairs.</li>
+                <li>The AppCache API provides a way to make webpages available when users are offline.</li>
+                <li>The AppCache manifest defines what’s available offline.</li>
+                <li>The Geolocation API provides a way to integrate location services into a webpage</li>
+                <li>The Geolocation API provides two methods: <code>getCurrentPosition</code> and <code>watchPosition.</code></li>
+            </ul>
+
+        </section>
+
+
     </article>
 
 
-
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxrhZrU7Qv2GZJAIQtaSI_6f2Z1JvFqNc&callback=initMap">
+    </script>
     <script src="../../js/jquery-3.1.0.js" type="text/javascript">
     </script>
     <script src="../../js/objective14.js" type="text/javascript">
     </script>
+
 
 
 </body>
