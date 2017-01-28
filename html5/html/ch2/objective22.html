@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../css/font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="../../css/highlight/styles/darkula.css">
+    <script src="../../js/jquery-3.1.0.js"></script>
+    <script src="../../js/objective22.js"></script>
+    <script src="../../css/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <title>Objective 2.2</title>
+  </head>
+  <body class="centered container">
+    <h1 class="bg-info">Objective 2.2: Raise and handle an event</h3>
+      <h3>Using Events</h3>
+      <div>
+      <p>
+        You can hook up an event in three ways:
+      </p>
+        <ul>
+          <li>Declare it directly in the HTML markup.</li>
+          <li>Assign the function to the event property of the element object through JavaScript.</li>
+          <li>Use the newer add and remove methods on the element object to associate event handlers.</li>
+        </ul>
+        <h4>Event Object</h4>
+        <div >
+
+
+        <p>
+                      In general, the event object is a common object available within event handlers that provides
+            metadata about the event. For example, if keyboard events are being handled, you might
+            want to know which key was pressed. If mouse events are being handled, you might want to
+            know which mouse button was pressed. The event object contains all these properties. <br>
+            The event object is accessed within an event handler function, using the window object as
+            shown: <br>
+</p>
+    <pre>
+        <code class="language-javascript">
+          var evnt = window.event;
+        </code>
+    </pre>
+
+<div class="alert alert-info" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span><b>INFO: ACCESSING THE EVENT CONTEXT</b></span>
+  <p>
+    In Internet Explorer, the window event is the method required to access the event object.
+    However, in some browsers, the event object is passed to the event function as a
+    parameter.
+  </p>
+</div>
+</div>
+</div>
+<h3>Declarative event handling</h3>
+<div>
+    <p>
+      Handling events declaratively in the HTML markup is possible by setting up an event handlers
+  line within the HTML elements. This is effectively no different than assigning a value to any
+  other property or attribute of the HTML element. Look at the following HTML sample:
+    </p>
+
+    <pre>
+        <code class="language-html">
+          &lt html &gt
+              &lt head &gt
+                      &lt script &gt
+                            function onloadHandler() {
+                                    alert("hello event.");
+                            }
+                      &lt /script &gt
+              &lt /head&gt
+              &lt body onload="onloadHandler();"&gt
+              …
+              &lt /body&gt
+        &lt /html&gt
+        </code>
+    </pre>
+    n this HTML markup, the onload attribute of the body element is assigned JavaScript to
+run. The onload event fires when the document itself is fully loaded into the browser. When
+the document is loaded, the onload event fires, which calls the onloadHandler function and in
+turn shows the alert box. Any events that will be looked at through this objective can be set
+up this way directly in the HTML markup. Next, you see how to set up events programmatically
+by assigning the function to the event property in JavaScript.
+
+</div>
+<h3>Assignment event handling</h3>
+
+<div>
+  Assigning the event function to the event property through JavaScript is another way to set
+up event handlers. This method has been around for a long time and is still widely used. For
+the preceding example of the onload event, the following changes are required to reflect
+assigning an event handler through JavaScript:
+<pre>
+    <code class="language-html">
+      &lt html &gt
+          &lt head &gt
+                  &lt script &gt
+                        window.onload = onloadHandler();
+                        function onloadHandler() {
+                                alert("hello event.");
+                        }
+                  &lt /script &gt
+          &lt /head&gt
+          &lt body onload="onloadHandler();"&gt
+          …
+          &lt /body&gt
+    &lt /html&gt
+    </code>
+</pre>
+In this code, the HTML element for the body is cleaned up and the onload event is assigned
+in JavaScript. The window object isn’t the same as the body element, but it demonstrates
+the concept of assigning code that needs to run as soon as the page is loaded. Notice
+that the assignment of the onloadHandler is in the script block but not inside any function.
+For this to succeed, the window object must exist. Since the window object is a global object
+it will exist. However, to access elements of the page, the page must be loaded or the script
+must run after the renderer processes the HTML. For example, if the page has a canvas and
+the functionality to enable users to draw on it with a mouse, the event handlers for the mouse
+activities would have to be assigned either at the bottom of the page or within the window’s
+onload event. The onload event is triggered when the entire page is loaded, so it’s possible to
+get a reference to the page elements and hook up the event handlers.
+</div>
+
+<h3>Using the <i>addEventListener</i> and <i>removeEventListener</i> methods</h3>
+<div >
+  <p>
+    addEventListener and removeEventListener are the two preferred methods to hook up a function
+to an event and then to remove it later as needed. The addEventListener method accepts
+two required parameters and one optional parameter:
+  </p>
+  <pre>
+    <code class="language-javascript">
+      addEventListener(&ltevent name&gt,&ltevent function&gt,&ltoptional cascade rule&gt)
+    </code>
+  </pre>
+  The event name is the name of the event to be handled. The event name will be as you’ve
+seen in the previous examples except without the on prefix. For example, the name of the
+onload event is just load. The event function is the one that should run when the event occurs,
+the listener. The optional cascade rule provides some flexibility in how the events move through
+nested DOM elements. This is examined in more detail later in the discussion on event bubbling.
+The removeEventListener takes exactly the same parameters. What this implies is that more
+than one event listener can be added for the same event and then removed. Thinking in the
+context of a complicated program such as a game, you might need to turn on and off specific
+event handlers for the same event. Consider the following example:
+
+</div>
+
+ <script type="text/javascript" src="">
+  </script>
+  </body>
+</html>
